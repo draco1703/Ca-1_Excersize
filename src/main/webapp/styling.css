@@ -49,64 +49,69 @@ li a:hover:not(.active) {
     color: white;
 }
 
-.main{
+.main {
     display: flex;
     padding: 2em;
     height: 90vh;
     justify-content: center;
-    align-items: middle;
+    align-items: center;
 }
 
-.clockbox{
-    #clock{
-        height: 100%;
-    }
+.clockbox {
+    #clock
+
+{
+    height: 100%;
 }
 
-.circle{
+}
+
+.circle {
     fill: none;
-    stroke #000;
+    stroke: #000;
     stroke-width: 9;
     stroke-miterlimit: 10;
 }
 
-.mid-circle{
+.mid-circle {
     fill: #000;
 }
 
-.hour-marks{
+.hour-marks {
     fill: none;
     stroke: #000;
     stroke-width: 9;
-    stroke-mitelimit: 10;
+    stroke-miterlimit: 10;
 }
 
-.hour-arm{
+.hour-arm {
     fill: none;
     stroke: #000;
     stroke-width: 17;
     stroke-miterlimit: 10;
 }
-.minute-arm{
+
+.minute-arm {
     fill: none;
     stroke: #000;
     stroke-width: 11;
     stroke-miterlimit: 10;
 }
-.second-arm{
+
+.second-arm {
     fill: none;
     stroke: #000;
     stroke-width: 4;
     stroke-miterlimit: 10;
 }
 
-.sizing-box{
+.sizing-box {
     fill: none;
 }
 
 #hour,
 #minute,
-#second{
+#second {
     transform-origin: 300px 300px;
-    transition: transform .5s ease-in-out;
+    /*transition: transform .5s ease-in-out;*/
 }
