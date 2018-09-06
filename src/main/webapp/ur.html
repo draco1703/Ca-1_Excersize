@@ -7,20 +7,32 @@
 <body>
 
     <canvas id="ur" width="400" height="400"></canvas>
+
+    <button onclick="romanNumerals()">RomanNumerals</button>
+    <button onclick="decimal()">Decimal</button>
+
     <script>
         var canvas = document.getElementById("ur");
         var context = canvas.getContext("2d");
         var radius = canvas.height / 2;
+        var numbers = ["XII", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI"];
+
         context.translate(radius, radius);
         radius = radius * 0.9
         setInterval(drawClock, 1000);
+        function romanNumerals() {
+            this.numbers = ["XII", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI"];
+        }
+        function decimal() {
+            this.numbers = [12, 1, 2, 3,4, 5, 6,7, 8,9, 10, 11];
+        }
 
         function drawClock() {
             drawFace(context, radius);
             drawNumber(context, radius);
             drawTimer(context, radius);
         }
-     
+
         function drawFace(context, radius) {
             var grad;
             context.beginPath();
@@ -29,7 +41,7 @@
             context.fill();
             grad = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
             grad.addColorStop(0, '#333');
-     
+
             context.strokeStyle = grad;
             context.lineWidth = radius * 0.1;
             context.stroke();
@@ -46,17 +58,17 @@
             context.font = radius * 0.15 + "px arial";
             context.textBaseline = "middle";
             context.textAlign = "center";
-            for (num = 1; num <= 12; num++) {
+            for (num = 0; num < 12; num++) {
                 ang = num * Math.PI / 6;
                 context.rotate(ang);
                 context.translate(0, -radius * 0.85);
                 context.rotate(-ang);
-                context.fillText(num.toString(), 0, 0);
+                context.fillText(this.numbers[num].toString(), 0, 0);
                 context.rotate(ang);
                 context.translate(0, radius * 0.85);
                 context.rotate(-ang);
             }
-          
+
         }
         function drawTimer(context, radius) {
             var now = new Date();
@@ -69,7 +81,7 @@
                 (min * Math.PI / (6 * 60)) +
                 (sec * Math.PI / (360 * 60));
             drawHand(context, hour, radius * 0.5, radius * 0.07);
-       
+
             min = (min * Math.PI / 30) + (sec * Math.PI / (30 * 60));
             drawHand(context, min, radius * 0.8, radius * 0.07);
 
@@ -77,8 +89,10 @@
             drawHand(context, sec, radius * 0.9, radius * 0.02);
 
 
-         
+
         }
+
+
 
         function drawHand(context, pos, length, width) {
             context.beginPath();
@@ -91,14 +105,12 @@
             context.rotate(-pos);
         }
 
-      
+
 
     </script>
-   
+
 
 
 
 </body>
-</html>      
-
-
+</html>  
