@@ -13,8 +13,7 @@ var click =0;
 /// added boy or girl
 document.getElementById("addboy").addEventListener("click", function () { add(boys, "boys"); });
 document.getElementById("addgirl").addEventListener("click", function () { add(girls,"girls") });
-function add(e, ex) {
-	console.log(ae);
+function add(e, ex)
 	var newArray = document.getElementById("new" + ex.substring(0, ex.length-1)).value;
     e.push(newArray);
 	document.getElementById("new" + ex.substring(0, ex.length - 1)).value = "";
