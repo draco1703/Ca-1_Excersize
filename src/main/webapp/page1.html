@@ -2,6 +2,34 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="styling.css">
+<style>
+  #container{
+    width: 226px;
+    height: 274px;
+    border: 3px solid darkblue;
+    margin: auto
+  }
+  .t1, .t4{
+    border: 1px solid black;
+    height: 48px;
+    margin-left: 3px;
+    margin-top: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 48px;
+  }
+  .t1{
+    width: 48px;
+  }
+  .t4{
+    width: 219px;
+  }
+  .button2 {
+            width:  45px;
+            height: 45px;
+        }
+  </style>
+  
 </head>
 <body>
 
@@ -15,28 +43,43 @@
 <div id="container">
   <div id="display" class="t4"></div>
   <div id="buttons">
-    <div class="t1">7</div>
-    <div class="t1">8</div>
-    <div class="t1">9</div>
-    <div class="t1">/</div>
+    <div class="t1"><button class="button2" value="7" onclick="storeVal(this.value)">7</button></div>
+    <div class="t1"><button class="button2" value="8" onclick="storeVal(this.value)">8</button></div>
+    <div class="t1"><button class="button2" value="9" onclick="storeVal(this.value)">9</button></div>
+    <div class="t1"><button class="button2" value="/" onclick="storeVal(this.value)">/</button></div>
 
-    <div class="t1">4</div>
-    <div class="t1">5</div>
-    <div class="t1">6</div>
-    <div class="t1">*</div>
+    <div class="t1"><button class="button2" value="4" onclick="storeVal(this.value)">4</button></div>
+    <div class="t1"><button class="button2" value="5" onclick="storeVal(this.value)">5</button></div>
+    <div class="t1"><button class="button2" value="6" onclick="storeVal(this.value)">6</button></div>
+    <div class="t1"><button class="button2" value="*" onclick="storeVal(this.value)">*</button></div>
 
-    <div class="t1">1</div>
-    <div class="t1">2</div>
-    <div class="t1">3</div>
-    <div class="t1">-</div>
+    <div class="t1"><button class="button2" value="1" onclick="storeVal(this.value)">1</button></div>
+    <div class="t1"><button class="button2" value="2" onclick="storeVal(this.value)">2</button></div>
+    <div class="t1"><button class="button2" value="3" onclick="storeVal(this.value)">3</button></div>
+    <div class="t1"><button class="button2" value="-" onclick="storeVal(this.value)">-</button></div>
 
-    <div class="t1">0</div>
-    <div class="t1">.</div>
-    <div class="t1">+</div>
-    <div id="calculate"class="t1">=</div>
+    <div class="t1"><button class="button2" value="0" onclick="storeVal(this.value)">0</button></div>
+    <div class="t1"><button class="button2" value="." onclick="storeVal(this.value)">.</button></div>
+    <div class="t1"><button class="button2" value="+" onclick="storeVal(this.value)">+</button></div>
+    <div id="calculate"class="t1"><button class="button2" value="=" onclick="calcVal(document.getElementById('display').value)">=</button></div>
   </div>
 </div>
 
 
 </body>
+<script>
+  document.getElementById("display").value = "";
+
+  function storeVal(button2Value) {
+      document.getElementById('display').value += button2Value;
+      document.getElementById('display').innerHTML += button2Value;
+  }
+
+  function calcVal(equation) {
+      var answer = eval(equation);
+      console.log(answer);
+      document.getElementById('display').value = answer;
+      document.getElementById('display').innerHTML = answer;
+  }
+</script>
 </html>
